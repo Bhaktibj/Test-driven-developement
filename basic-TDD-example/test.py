@@ -1,4 +1,4 @@
-from aithmatic_operations import AirthmaticOperations
+from airthmatic_operations import AirthmaticOperations
 import unittest
 
 
