@@ -36,9 +36,9 @@ class TestParkingLot(unittest.TestCase):
         self.assertNotIn("MH-0-AB-123", regnos)
 
     def test_get_slotno_from_regno(self):
-        res = parking_lot.create_parking_lot(6)
-        res = parking_lot.park("KA-01-HH-3001", "White")
-        res = parking_lot.park("KA-01-HH-9999", "White")
+        result = parking_lot.create_parking_lot(6)
+        result = parking_lot.park("KA-01-HH-3001", "White")
+        result = parking_lot.park("KA-01-HH-9999", "White")
         slotno = parking_lot.get_slotno_from_regno("KA-01-HH-9999")
         self.assertEqual(2, slotno)
 
