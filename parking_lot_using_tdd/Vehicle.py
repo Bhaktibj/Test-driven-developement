@@ -4,9 +4,9 @@ class Vehicle:
         self.regno=regno
 
 
-class Bike(Vehicle):
+class Car(Vehicle):
     def __init__(self, regno, color):
         Vehicle.__init__(self, regno, color)
 
     def getType(self):
-        return "Bike"
+        return "Car"
