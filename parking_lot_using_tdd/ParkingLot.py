@@ -43,7 +43,36 @@ class ParkingLot:
             else:
                 continue
 
-    def show(self, line):
+    def get_regno_from_color(self, color):
+
+        regnos = []
+        for i in self.slots:
+
+            if i == -1:
+                continue
+            if i.color == color:
+                regnos.append(i.regno)
+        return regnos
+
+    def get_soltno_from_regno(self, regno):
+        for i in range(len(self.slots)):
+            if self.slots[i].regno == regno:
+                return i + 1
+            else:
+                continue
+        return -1
+
+    def get_slotno_from_color(self, color):
+        slotnos = []
+        for i in range(len(self.slots)):
+
+            if self.slots[i] == -1:
+                continue
+            if self.slots[i].color == color:
+                slotnos.append(str(i + 1))
+        return slotnos
+
+    def show_data(self, line):
         if line.startswith('create_parking_lot'):
             n=int(line.split(' ')[1])
             res=self.create_parking_lot(n)
@@ -67,11 +96,31 @@ class ParkingLot:
             self.check_status()
 
 
+        elif line.startswith('registration_numbers_for_bikes_with_colour'):
+            color = line.split(' ')[1]
+            regnos = self.get_regno_from_color(color)
+            print(', '.join(regnos))
+
+        elif line.startswith('slot_numbers_for_bikes_with_colour'):
+            color = line.split(' ')[1]
+            slotnos = self.get_slotno_from_color(color)
+            print(', '.join(slotnos))
+
+        elif line.startswith('slot_number_for_registration_number'):
+            regno = line.split(' ')[1]
+            slotno = self.get_soltno_from_regno(regno)
+            if slotno == -1:
+                print("Not found")
+            else:
+                print(slotno)
+        elif line.startswith('exit'):
+            exit(0)
+
 def main():
     parkinglot=ParkingLot()
     while True:
-        line=input("$ ")
-        parkinglot.show(line)
+        line=input(">> ")
+        parkinglot.show_data(line)
 
 
 if __name__ == '__main__':
