@@ -1,0 +1,15 @@
+create_parking_lot 6
+park KA-01-HH-2222 White
+park KA-01-HH-9999 White
+park KA-01-BB-8888 Black
+park KA-01-HH-7777 white
+park KA-01-HH-3433 Blue
+park KA-01-HH-3141 Black
+leave_slot 4
+status
+park KA-01-P-333 White
+park DL-12-AA-9999 White
+regno_for_cars_with_colour White
+slotno_for_cars_with_colour White
+slot_number_for_regno KA-01-HH-3141
+slot_number_for_regno MH-04-AY-1111
